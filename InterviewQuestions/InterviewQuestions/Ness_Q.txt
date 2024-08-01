@@ -1,0 +1,14 @@
+1. Project architecture
+2. List and ArrayList difference
+3. I have a two Linked lists and how to merge without existing methods
+3. Difference between AL and Linked List
+4. What is List Sychronized method, Without using synchronisation can we do shared objects
+5. I have a two HashMp lists and how to merge without existing methods, can we done in streams
+6. Java stream API advantages
+7. How to handle DB connections if maximum pool size reached
+8. How to communicate cross platform MS components
+9. What is JPA, differnce between jdbc and spring data jpa
+10.sql query for second height salary of employee
+11.sql query on emp joining date based on desc
+12.Difference between Jquery and @ , $each, $for
+13.Decorators in java and can we create customized 

@@ -1,0 +1,32 @@
+
+Walmart JD:  Mandatory: Core Java, Design Patterns, Problem Solving, XML, XSLT, JSON, Git, Jenkins CI/CD, Spring, REST, JMS, Kafka, Oracle, SQL, 
+Sound understanding of JVM Fundamentals (Heap Dump, Thread Dump, Garbage Collection), Sound understanding of Distributed Systems
+Desired: SpringBoot, Apache Camel, Distributed Caching (Redis/Memcache), Alerting & Monitoring tools (Any 2 of these: Splunk, Dynatrace, 
+Grafana, ELK Stack), TDD (Test Driven Development), Zookeeper, Agile Scrum
+---
+
+Mecys: 	1.Java8 onwards
+
+		2. Microservices
+
+		3. Kafka
+
+Good Communication Skill
+------------
+Core Java	Mandatory
+Design Patterns	Mandatory
+Problem Solving	Mandatory
+Spring	Mandatory
+Messaging Systems (JMS, Kafka)	Mandatory
+Oracle, SQL	Mandatory
+JVM Fundamentals (Heap, Thread Dumps, GC)	Mandatory
+Understanding of Distributed Systems	Mandatory
+REST, XML, XSLT, JSON	Mandatory
+SpringBoot	Desired
+Apache Camel	Desired
+Distributed Caching (Redis/Memcache)	Desired
+Alerts & Monitoring Tools : Any two (Splunk, Dynatrace, Grafana, ELK)	Desired
+Zookeeper	Desired
+TDD (Test Driven Development)	Desired
+Git, Jenkins, CICD, Containerization (Docker) & Container Orchestration (Kubernetes)	Desired
+Interpersonal [Communication / Culture Fitment / Willingness to work in collaborative mode / etc.,]	Mandatory

@@ -1,0 +1,18 @@
+Persistence:
+---------------
+1. Difference between kafka topic and queue
+2. While consuming the data from topic, consumer is down then how can handle this sitiuation
+3. Difference between JMS and Kafka
+4. How can we share a file with two different applications over a network
+5. What is polymorpsm and its types
+6. What is encapasulation and then how can we achieve its
+7. What is the exception why we are using
+8. Difference between HashTable and ConsurrentHashMap
+9. What is choriography design pattern
+10.How to extract Map object from List<Map<String, String>, String> 
+11. How to define external Spring configuration class
+12.Can we overload static method, can we override static method.
+13.Difference between abstract class and Interface
+14.What are the @Component, @Service and @Repository and why we need
+15.What are Runnable and Callable interfaces
+16.What are Solid principles

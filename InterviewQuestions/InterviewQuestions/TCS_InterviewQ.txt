@@ -1,0 +1,155 @@
+TCS:
+1. Difference between String and StringBuilder and when do we used.
+2. Collections List, Set and Map
+3. Collection is class or interface
+4. What are the interfaces in Collection framework
+5. What is Spring and Spring Boot
+6. How do we configure Spring and Spring Boot applications
+7. @CompenentScan and @Configuration annotations and how it works
+8. Spring scopes and its details
+9. What is query cache
+10.REST api, doGet(), doPut()
+------------------------------------
+11.Project architecture
+12.Spring security and exception handling, how to do authenitication and authorisation.
+13.What is Spring clock
+14.Why do we need design patterns15.
+15.What is Spring DI 
+16.Why do we need spring framework
+17.How CRSF handle in Spring like if change the load by hacker
+18.Microservice all design patterns 
+19.What is Circute breaker design and Saga design patterns
+20.How to Handle exceptions in Spring boot
+21.Lambda and Functional Interfaces
+22.What is Consumer functional interface
+23.How to handle multiple databases in Spring boot
+24.How to communicate with one microservice to different microservice.
+25.One mircoservice is down and then how to handle this.
+26.Difference between Event driven and event sourcing 
+
+-------------------------------
+CTS:
+1. How to we migrate Monolatic app into miservices then what are the things need to consider
+2. How to maintail trnasaction management in microservices like A should complete then will communicate B service like that
+3. How to improve the scaling of the application in the context of RDBMS
+4. Java 8 features and funtional interface and abstract class
+4. How to handle diamond problems in java
+5. How activeMQ works and what is kafka
+6. How to handle if consumer service down while produce service posting the request multiple times
+7. @RestContoller and @Controller
+8. List of integers and sortred decreasing order using stream
+9. Employee id, name then based name on need to display uniquie list
+10.How to do multitasking, if Thread.start() will it say multithreading
+11.Difference between Spting and Spring Batch
+12.What is named query and when do we used
+13.Nosql 
+---------------------------------
+
+p99Soft:
+------------------
+1. What are the design patterns 
+2. what is Spring security and autherization, JWT and who are the providers.
+3. What is the expiry date for JWT token
+4. What are the principles to implement API's
+5. message MQ and Active MQ
+6. How to provide the data base lock
+7. What is data dead lock and how to handle
+8. AWS services
+9. Which environment is most severioty and why 
+10.How to secure DB
+11.What are the cache mechanisms
+12.What is noSQL and do we close connections in jpa apps
+13.What is jpa and hibernate
+14.What is final and static key word  bbxb
+15.How to handle data deadlock
+16.What are @Component, @Service and @Repository
+17.How to check applications logs and security levels
+18.what are the tools otherthan Splunk  - elastic search, DATADOG, AMAZON CLOUDWATCH, DYNATRACE, GRAFANA, PROMETHEUS, SUMO LOGIC
+19.BitBucket, AnsibleTower,UBuild and UDeploy are come under CI/ process
+20.What are the principles for distributed applications
+21.Difference between AL and LL then when to used
+22.System.gc() will it garbage collected everything and what is the method to garbage collected guarantees
+23.What is Executor Frmawork and who will boadcast the generated statements its ETR TOOL
+24.Write a program for second heighest number or kth heighest number
+25.Have you worked on higher versions than java 8
+26.What are inermediate and terminal operations
+27.What is AWS Database Migration Service (AWS DMS) and DB shrading (AWS) feature
+28.What is sql normalization
+29.What is H2 database when to use
+30.What is cryptographer in java -JCE
+31.What is datawaehrouse
+32.What is caching and how do we implement 
+33.Internal implemenatation of HashMap
+34.What is the idle time for session
+35.Have you worked on any OPEN API's implementation
+36.What are the best practices to improve DB performance
+37.Application server delpoyable locations in Tomcat and WAS
+
+----------------------------------
+1. Class Loaders
+2. What are the garbage collectors and its types
+3. What is Mutable list and unmutable list and its differences
+4. What is SOLID principles in java - Single Responsibility Principle, Open-Closed Principle, Liskov Substitution Principle, Interface Segregation Principle, 
+                                      and Dependency Inversion Principle.
+									  The Liskov Substitution Principle (LSP) is a fundamental principle in object-oriented programming that states that 
+									  objects of a superclass should be able to be replaced with objects of a subclass without affecting the correctness of the 
+									  program.
+
+
+1. what are the type of cloning? its differences
+2. what are the object methods and what is implentatiaon of equals() method
+3. Why we need to overrride equals and hashcode methods
+4. How hasing will worked
+5. How to avoid serializable object
+6. What is externalization
+7. What is Saga design pattern, how differentiate with Orchastration and 
+8. What is double locking?
+9. What are the advantages of java 8?
+10.Program to find heighest number in the list
+11.What is project orchitecture
+12.What is kafka, its components, can we use kafka without Zookeeper
+
+---------------------
+Output => {A=16.5, B=18.5, C=20.0}
+ 
+ 
+import java.util.*;
+import java.util.stream.Collectors;
+ 
+class Student {
+   private String name;
+   private int age;
+   private String grade;
+ 
+   public Student(String name, int age, String grade) {
+       this.name = name;
+       this.age = age;
+       this.grade = grade;
+   }
+ 
+   public String getName() {
+       return name;
+   }
+ 
+   public int getAge() {
+       return age;
+   }
+ 
+   public String getGrade() {
+       return grade;
+   }
+}
+ 
+public class Main {
+   public static void main(String[] args) {
+   List<Student> students = Arrays.asList(
+               new Student("Ram", 17, "A"),
+               new Student("Vishal", 19, "B"),
+               new Student("Sohan", 16, "A"),
+               new Student("Rohan", 20, "C"),
+               new Student("Eve", 18, "B")
+       );
+ 
+ 
+         }
+}

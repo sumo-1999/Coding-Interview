@@ -1,0 +1,186 @@
+Should have good knowledge of continuous integration and deployment (CICD)
+
+HCL:
+1. Features of Microservices like these featues are implemented using monolothic also, how its differenciates
+2. Spring Boot features, how do we know if db deatils auto configured
+3. Hibernate level cache and when will it use like session level and secondary level cache
+4. Java 8 features
+5. String consecutive sequence and length
+6. How do we know which database is auto configured?
+    <props>
+            <prop key="hibernate.hbm2ddl.auto">update</prop>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+     </props>
+----------------------------------------------------------------------------------------------------------------
+Cognizant:
+--------------
+1. n no. of String arry type int and its beyond long number. how do we caluculate the sum and handle the exception.
+2. Two strings contains 9 digits numbers, apply multiplication and then result should be an individual char in the output.
+3. we have two objects PrivateEmp & PermanentEmp declared in an Emp Inteface - calling @Autowire- Emp -- will it start Springboot Application.
+4. what is abstract spring bean.
+5.  instance of block
+6. How to create a immutable object and here String object is not the context.
+7. SAM
+8. How to create Date without using Date object class? Calendar class
+9. can we have multipls unique keys in the table? multiple null values
+10. i have wrongly updated lakhs of records the table and is it possible to update with correct data with single query?
+11. Java program to find Sum of Digits in a String.
+-----------------------
+L & T:
+1. Program for cricket live score
+2. Can we have multiple unique keys and null values and is it mandatory Primary key has in a table
+3. Hashing concept and two classes, same content then what about generation of hashcode
+4. what is Class loader
+5. Stream over collections
+6. Multtihreading concept
+7. Lazy loading, first level cache and second level cache , Query tuning, exception hanldling
+8. Spring mvc, Spring, Spring boot flows
+9. How the application performance is impleneted and exception handling
+10. how the procedured are triggering from application
+11. Hibernate lazy loading, indexes, array indexes and views
+12. Microservices, one microservice down and there is no input form them and how to handle them
+----------------------------------------------------------------------------------------------------------------------
+1. Difference berween spring mvc and springboot
+2. Hibernate annotations and mappings , fields mappings
+3. Spring annotations, what is Autowire
+4. Rest API METHODS, diffrence between get and put methods, REST annotations and request method parameters
+5. Java 8 features. creating a sub list , sorting order, how to use comparator in java streams
+6. static keyword for all the levels
+7. Singleton object
+8. Spring MVC flow and spring boot
+8. what is use of default methods
+9. how to make use of DB queries
+-----------------------------------------------------
+Mind Tree:
+---------------
+1. how to display max three salaries by using streams
+2. I have two interfaces and two default methods then how to call default methods. Is methods available by default
+3. java 8 new enhancement for concurrent hashing mechanism 
+4. Project design patterns - Singleton ton object and how to check Singleton object name is
+5. Optional class methods
+6. we have default implementation and what is the use of Comparable and Comparator Interfaces
+7. What is implementaion of API gateway-- how would you know which service is need to handle, what is the loadbalancing 
+8. @Component annotation insteadof @Service 
+9. what is Filter in Microservices
+10. @Entity, @Table, How to we connect db
+11. What is Client side Eureka and Server side Eureka
+12. What is RestTemplate
+13. How Eureka server knows about Microservices
+14. How routing can happen
+15. Advanrtage Stream API over collection
+16. Why Singleton Design pattern
+17: Asynchronous in java 8
+------------------
+Abhi:
+1. Servlet life cycle
+2. Excpetion handling in Spring boot
+3. Indexs mechanism
+4. Preapred Statemnt
+5. Spring Cloud Config
+6. Spring Profiles
+------------
+1. How to call REST call
+2. How do define POST CALL
+3. What is constructor copy
+4. Spring boot app flow
+5. Static method overloading- method hiding
+6. Marker interface and finally block, System.exit() excecution
+7. @CompositeKey, ORM advantages, @Entity,
+8. Array of Strings contains different String literals and need display combination of Rank - length of the string.
+9. What is procedures, finctions and how do we call.
+10. API Gateway
+11. Different joins
+12. What is Cardinality 
+13. How will write db queries in Spring Boot
+14. Spring boot db connections like CRUD oprations.
+15. Design pattern and usage. when to use these
+16. what is decorate pattern 
+17. select * from A, B
+18. How can we tell which response type we can access in REST and gow do we create Response object 
+19. what is future in java
+20. Cloning feature in Multithreading
+21.  How do we connect multiple dbs in Spring boot and microservices
+22. have two lists and gives distinct list 
+23. what is reflection in java
+24. Diffrence between AL and LL
+25. how to make class immutable
+26. Spring scopes and exception handling 
+25. Customized exception hadling and what are the ways creating Thread
+26. Method overloading and method overriding
+27. what is executors in java
+28. Hibernate first level and second level cache, lazy loading and its annotaion
+29. program for emp last name should decreasing order and salary in increasing order.
+30. Sping has  two same beans @Autowired but diffrerent refereces, what will happen
+31. what is Marker Interface and intenal imlementation 
+32. What is your project Micoservice Architecture
+33, design patterns 
+34. deep and swallo copy
+35. what will happen if two main methods
+36. private and static method overoading
+37. which stream is using on Collections
+38. Differemnce between for() and forEach()
+38. what is throwable in java
+39. Thread life cycle and what is concurrentHashMApException and how to handle it.
+40. Diff between comparable and comparator
+41, what is contract between hashcode and equals
+42. what is marker interface 
+43. how to define user defined execptions
+44. what is fetch type in hybernate, @Transactional 
+45. how to define composite keys in @Entity class level
+46. types of joins, diff between orderBy, GroupBy
+47. Spring profile, place holders in properties file.
+48. Difference between @Configuration, @Controller, @RestController, @Component
+49. what is interceptors and its methods in Spring Boot
+50. What are the Configuration methods
+51. count for empage>39 using streams
+52. what is gate API
+53. by using new keyword in String object and how many objects will create
+55. how to auto display time stamp while updating a table
+56. What are interceptors
+57. Program for display duplicated - Array[] arr = {1, 3,6,7,1,6, 4}
+58. Hibernate Assocoatioan
+59. What is composition 
+60. Array, LinkedList and HashMap- Which is best and why? And order of Complexity
+61. OOps concepts , multithreading , String immatable and java Memory allocation types
+62. @ComponentScan, @RestController and @Controller
+68. Rest API methods and diff between put and post method
+69. What is SessionFactory
+79. Spring IOC and DI
+80. Microserive architecture 
+81. what if we extends CRUDFRepository
+82. What is reduce method - java 8
+83. How to handle concurrentModificationException 
+84. Write a program for dead lock
+85. Design Patterns
+86. what needs to have two tables like one-to many relations
+87. What is difference between UNION AND UNION ALL
+88. Car A speed is 100 km/hr and Car B is 800 km/hr and distance between Car A and Car B is 100 km then at what point they will meet each other
+89. Difference b/w jvm, jre and jdk
+90. Difference b/w jar, war and ear file
+91. Difference b/w web server and Application Server
+92. what is OutOfMemoryError ?
+93. What is Normalization and how we define this towards tables?
+94. What is Reflection mechanism
+95. Difference b/w Web Application and Enterprise Application
+---------------------------------
+Amit Hiwarkar - Persistence:
+1. what is the difference between Collections and Stream.
+2. what is serialization concept and why it is?
+3. what is encapsulation 
+4. hash map internation implemenatation
+4. Str = "nxyxyxyxyxym" no of occurences using stream
+5.  str = "arjunyadav - dont want meet second time while iterating then then how to handle it
+5.  notifyAll - two orders are placed in same time then which order is placed first.
+6. put and patch 
+7. Spring security
+8. Random random = new Random()- random.stream().init().limit(5).forEach(System.out::Println)
+9. How microservices are deployed?
+10. what is  Header, payload and signature in JWT?
+11. Multithreading concept
+12. Map to Set using Stream
+13. int[] arr ={12,33,45,66,67,89,34,67,54,32,56} -- sort order dont  use for loop or streams.
+14. Program for dead lock scenario
+15. Program for System file path from local drive
+16. Can we clone Singleton object
+https://www.geeksforgeeks.org/prevent-singleton-pattern-reflection-serialization-cloning/
+17. Stream methods 

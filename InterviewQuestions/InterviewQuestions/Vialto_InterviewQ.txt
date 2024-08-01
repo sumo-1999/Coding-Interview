@@ -1,0 +1,37 @@
+
+1. What are the Azure services (They need Azure Cloud hands on experience
+   and also they need UI experience also).
+2. How to find string occurrences by using regex
+3. How to find string occurrences by using Stream API
+4. What is the Java new version and its new features
+5. Lambda and Functinal Interface conventional style coding and using Lambda
+6. Have you worked on scrach level projects and its configurations
+7. Converting json file into excel file and what is the implementation design
+8. We have a Authentication/Autherization mechanism in our existing app, Can we implement our own implementation and then application should work 
+   with new and existing mechanism then how routing will handle & what is the design
+9. How to implement REST url, for example http://localhost:8080/WebUI then WebUI format is anyhting like camel, uppercae etc,
+   every url pattern should login the application then How to do the url design.
+10.How to handle the prod/server related issues in the context of finding the cause and what are the steps.   
+
+
+
+-------------
+
+ArrayList<String> list - new ArrayLust();
+list.add("Arjun");
+list.add("Java");
+list.add("Cloud");
+
+list.stream().map(s->legth).forEach(s-> sop());
+
+040 7824444
+
+41864446650
+
+rangakaranam  ---
+namasthe react  -- 
+
+
+Acct : 101410021004613
+HDFC0CTGCUB
+

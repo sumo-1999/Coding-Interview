@@ -1,0 +1,35 @@
+https://www.studytonight.com/post/load-balancing-spring-boot-microservices-using-netflixs-ribbon
+https://dzone.com/articles/how-to-build-an-api-gateway-with-netflix-zuul-spri
+--------------
+1. Explain the advantages of Java design pattern?
+
+    The Design Patterns are reusable in multiple projects.
+    The Design Patterns provide a solution that helps to define the system architecture.
+    The Design Patterns capture software engineering experiences.
+    The Design Patterns provide transparency to the design of an application.
+    They are testified and well-proved since they have been built upon the knowledge and experience of expert software developers.
+------------------------------------
+Creational patterns:   
+2. What are the Creational Patterns?
+															Creational design patterns are related to the way of creating objects. Creational design patterns 
+															are used when a decision is made at the time of instantiation of a class.
+													Ex:	EmpRecord e1=new EmpRecord();
+									Since new keyword is used to create an object in Java, So, here we are creating the instance using the new keyword. 
+									In some cases, the nature of the object must be changed according to the nature of the program. 
+									In such cases, we should use the creational design patterns to provide a more general and flexible approach.
+3. What Is Factory Pattern?
+	It is the most used design pattern in Java.
+    These design patterns belong to the Creational Pattern as this pattern provides one of the best ways to create an object.
+    In the Factory pattern, we don't expose the creation logic to the client and refer the created object using a standard interface.
+    Factory Pattern allows the sub-classes to choose the type of objects to create.
+    The Factory Pattern is also known as Virtual Constructor.
+4. What Is Abstract Factory Pattern?
+
+Abstract Factory Pattern states that define an abstract class or interface for creating families of related objects but without specifying their 
+concrete sub-classes. That means Abstract Factory allowed a class to return a factory of classes. That is why the Abstract Factory Pattern is one 
+level higher than the Factory Pattern.
+
+    Abstract Factory patterns work around superclasses, which creates other classes.
+    The Abstract Factory Pattern comes under Creational Pattern as this pattern provides one of the best ways to create an object.
+    In the Abstract Factory pattern, an interface is liable for creating a factory of related objects without explicitly identifying their classes.
+    Each generated factory can give the objects according to the Factory pattern.

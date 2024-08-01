@@ -1,0 +1,15 @@
+Caspex:
+-------
+1. Project Architecture
+2. When to use AL, LL and Vector
+3. Microservice design patterns
+4. Saga Design patterns
+5. Spring security and exception handling
+6. How native query execute in Spting boot.
+7. Java 8 features
+8. Multithreading and how to find numbers threads in Executor framework like, How would you know how many threads are required in 
+   ExectorService  service = new FixedSingleThread(10);
+9. Program for find emp salary > 50k using streams
+10.What is pagination in Spring or Spring Boot
+11.Http code like 500 error and how to configure in Spring boot
+12.How to provide the Spring security   

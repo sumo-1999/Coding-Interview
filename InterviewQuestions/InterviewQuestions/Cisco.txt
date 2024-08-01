@@ -1,0 +1,12 @@
+Cisco:
+1. Difference between post() and put() method?
+2. Asked about project experience like CI/CD pipe line and technology stack
+3. What is load balancer?
+4. How to handle the project from hackers/fraud and what is the security mechanism you are having in your projects
+5. What is JWT
+6. How to handle environmental configurations in CI/CD process.
+7. How to share the .zip file in CI/CD process
+8. Program - String of an Array containing A-Z alphabets and special character & empty string, so need to display only alphabates
+   from the given string of an array.
+   Ex: List<String> list =Arrays.asList("Java", "Oracle", " ", "@");
+9. javaScript code to get the 10 properties from any Object class   

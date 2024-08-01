@@ -1,0 +1,158 @@
+https://www.interviewbit.com/spring-interview-questions/
+Spring MVC 3.2 Execution Flow
+
+Step 1: First request will be received by DispatcherServlet
+Step 2: DispatcherServlet will take the help of HandlerMapping and get to know the Controller class name associated with the given request
+Step 3: So request transfer to the Controller, and then controller will process the request by executing appropriate methods and returns ModeAndView object 
+(contains Model data and View name) back to the DispatcherServlet
+Step 4: Now DispatcherServlet send the model object to the ViewResolver to get the actual view page
+Step 5: Finally DispatcherServlet will pass the Model object to the View page to display the result
+
+
+All JavaBeans are POJOs but not all POJOs are JavaBeans.
+
+A JavaBean is a Java object that satisfies certain programming conventions:
+
+    the JavaBean class must implement either Serializable or Externalizable;
+    the JavaBean class must have a public no-arg constructor;
+    all JavaBean properties must have public setter and getter methods (as appropriate);
+    all JavaBean instance variables should be private.
+------------------
+Spring Annotations:
+-------------------------
+1. @Configuration -- Used to indicate that a class declares one or more @Bean methods. 
+								These classes are processed by the Spring container to generate bean definitions and service requests for those beans 
+								at runtime
+
+		@Configuration & @Bean Annotations
+Annotating a class with the @Configuration indicates that the class can be used by the Spring IoC container as a source of bean definitions.
+ The @Bean annotation tells Spring that a method annotated with @Bean will return an object that should be registered as a bean in the Spring application
+ context
+2. @Bean  --   Indicates that a method produces a bean to be managed by the Spring container. 
+						This is one of the most used and important spring annotation. @Bean annotation also can be used with parameters like name, 
+						initMethod and destroyMethod.
+					name – allows you give name for bean
+					initMethod – allows you to choose method which will be invoked on context register
+					destroyMethod – allows you to choose method which will be invoked on context shutdown
+@Configuration
+public class AppConfig {
+
+    @Bean(name = "comp", initMethod = "turnOn", destroyMethod = "turnOff")
+    Computer computer(){
+        return new Computer();
+    }
+}
+public class Computer {
+
+    public void turnOn(){
+        System.out.println("Load operating system");
+    }
+    public void turnOff(){
+        System.out.println("Close all programs");
+    }
+} 
+3. @ComponentScan : annotation enables Spring components to scan. Java classes that are annotated as @Component, @Configuration, @Service are auto-detected by 
+					Spring. 
+									The @ComponentScan's basePackages attribute specifies which packages should be scanned for annotated beans
+									
+4. @Component: Indicates that an annotated class is a “component”. Such classes are considered as candidates for auto-detection when using annotation-based
+				configuration and classpath scanning.
+
+5. @Service: Indicates that an annotated class is a “Service”. This annotation serves as a specialization of @Component, allowing for implementation 
+				classes to be autodetected through classpath scanning.
+
+6. @Repository: Indicates that an annotated class is a “Repository”. This annotation serves as a specialization of @Component and advisable 
+				to use with DAO classes.
+
+7. @Autowired: Spring @Autowired annotation is used for automatic injection of beans. 
+
+8. @Qualifier -- annotation is used in conjunction with Autowired to avoid confusion when we have two of more bean configured for same type. 		
+
+10. @PropertySource : 
+---------------------------------------------------------------------
+Spring MVC annotations:
+1. @Controller   --  annotation is used to indicate that it’s a web controller class.
+2. @RequestMapping   -- used with classes and methods to redirect to the client request to the specific handler method - returnig as String- should be 
+						the jsp name - to be used as the response.
+										so we need to create JSP pages with the same name.
+										Every method contains Model as an argument and we can set attributes to be later used in the JSP response pages.
+						Ex: @RequestMapping(value = "/", method = RequestMethod.GET) , @RequestMapping(value = "/login", method = RequestMethod.GET), 
+								@RequestMapping(value = "/home", method = RequestMethod.POST)
+								public String login(@Validated User user, Model model) {
+										model.addAttribute("userName", user.getUserName());
+3. @PathVariable   --  to obtain some placeholder from the URI (Spring call it an URI Template)  
+4. @RequestParam  -- to obtain a parameter from the URI as well  -- annotation used for accessing the query parameter values from the request
+											URL http://localhost:8080/MyApp/user/1234/invoices?date=12-05-2013
+						Ex: @RequestMapping(value="/user/{userId}/invoices", method = RequestMethod.GET)
+								public List<Invoice> listUsersInvoices(
+											@PathVariable("userId") int user,
+											@RequestParam(value = "date", required = false) Date dateOrNull) {
+  ...
+}
+
+5. @ModelAttribute  -  used to inject data objects in the model before a JSP loads
+									used to read data from an existing model, assigning it to handler method parameters.
+6. @RequestBody and @ResponseBody  : used to bind these HTTP request/response 
+																These annotations are important while building our REST API using Spring and Spring Boot
+																
+Your controller method would look like this:
+// controller 
+@ResponseBody @RequestMapping("/description")
+public Description getDescription(@RequestBody UserStats stats){
+    return new Description(stats.getFirstName() + " " + stats.getLastname() + " hates wacky wabbits");
+}
+
+// domain / value objects
+public class UserStats{
+    private String firstName;
+    private String lastName;
+    // + getters, setters
+}
+public class Description{
+    private String description;
+    // + getters, setters, constructor
+}
+7. @RequestHeader and @ResponseHeader		:  to read HTTP header information on REST api
+
+8. @Trnasactional : to apply spring declarative txn management.
+   ex: @Service
+public class PersonServiceImpl implements PersonService {
+	
+	private PersonDAO personDAO;
+
+	public void setPersonDAO(PersonDAO personDAO) {
+		this.personDAO = personDAO;
+	}
+
+	@Override
+	@Transactional
+	public void addPerson(Person p) {
+		this.personDAO.addPerson(p);
+	}
+9. @EnableWebSecurity:  is used with @Configuration class to have the Spring Security configuration defined
+https://www.journaldev.com/2433/spring-mvc-tutorial		-- Spring mvc example			
+https://javasterling.com/spring-boot/spring-boot-annotations/  -  All annlotations
+------------------------------------------------------------------------------------------------------
+-->What is inversion of control and dependency injection
+Inversion of Control(IoC) is also known as Dependency injection (DI). The Spring container uses Dependency Injection (DI) to manage the components that build up an application 
+and these objects are called Spring Beans. 
+Spring implements DI by either an XML configuration file or annotations. 
+The Container is responsible for managing the object lifecycle (create the objects, wire them together,
+ configure them, and manage their complete lifecycle from creation till destruction). 
+The main goal of the Inversion of control and Dependency Injection is to remove dependencies of an application. This makes the system more decoupled and maintainable.
+-----------------------------
+Spring Steriotypes:
+@Component
+@Service
+@Repository
+@Controller
+-------------------
+REST Template is the easiest way to establish synchronous communication from m1 to m2. RestTemplate is a class available under 
+spring.framework.web.client that acts as
+a synchronous client to perform HTTP requests.
+
+
+"[a+{c+d}-d]"
+"[a+(c+d}-d}"
+"[a+{c+d-d}"
+"[a+{c+d}-d}*(-s)"

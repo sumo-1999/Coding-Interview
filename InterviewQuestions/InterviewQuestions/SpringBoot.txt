@@ -1,0 +1,219 @@
+ https://www.guru99.com/spring-boot-interview-questions.html
+1. Spring boot features
+		1.  Web Development - tomcat  ----   We can easily create a self-contained HTTP server using embedded Tomcat,
+																easy to develop web - org.sw.boot.starter.web module to start and running application quickly.
+		2. SpringApplication                -----  main method can start spring application - static run() method
+		3. Application events and listeners  -----  Spring Boot uses events to handle variety of tasks. It allows us to create factories file that are used to add listeners. 
+																		we can refer it by using ApplicationListener key.
+																		Always create factories file in META-INF folder like: META-INF/spring.factories
+		4. Admin features     --------------  	to enable admin related features for the application. It is used to access and manage application remotely. 
+																We can enable it by simply using spring.application.admin.enabled property.
+		5. Externalized Configuration  ------------   we can work with the same application in different environments. Application use YAML files to externalize configuration.
+																			Externalized Configuration helps to work with the same code in different environments. 
+																			Developers can use YAML files, properties files, command-line arguments, and environment variables to externalize configuration.
+		6. Properties Files   ------------- rich set of organize application properties.
+		7. YAML Support   -------------- It provides convenient way for specifying hierarchical configuration. It is a superset of JSON. The SpringApplication class automatically support YAML. 
+														It is successful alternative of properties.
+		8. Type-safe Configuration    ---   Spring Boot offers another approach for managing properties known as type-safe configuration properties. 
+															You can create a class to hold all related properties instead of adding a @Value annotation.
+															@EnableConfigurationProperties
+															@ConstructorBinding
+															@ConfigurationProperties("menu")
+		9. Logging    ----------------------- Spring Boot uses Common logging for all internal logging. Logging dependencies are managed by default. 
+															We should not change logging dependencies, if there is no required customization is needed
+		10. Security  -----------------------  Spring Boot applications are spring bases web applications. So, it is secure by default with basic authentication on all HTTP endpoints. 
+															A rich set of Endpoints are available for develop a secure Spring Boot application.
+----------------------------------------------------------------
+2. To start Spring Boot application below depedency is must and its available by default.
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>	
+parent - 		spring-boot-starter-parent is optional 
+<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.6</version>
+		<relativePath/> <!-- lookup parent from repository -->
+</parent>
+-------------------
+3. Spring boot Actuator:
+ Spring Boot Actuator is a sub-project of the Spring Boot Framework. It includes a number of additional features that help us to monitor and manage the Spring Boot application. 
+ It contains the actuator endpoints (the place where the resources live). We can use HTTP and JMX endpoints to manage and monitor the Spring Boot application. 
+ If we want to get production-ready features in an application, we should use the Spring Boot actuator.
+ --------------
+ 4. Spring Boot annotations:
+-------------------------------
+1. @SpringBootApplication: 
+This annotation is the combination of so many different annotations which includes:
+
+@Configuration
+@ComponentScan
+@EnableAutoConfiguration
+This annotation is used in the main class of our application it is the entry point of our application as well.
+--------------
+2. @EnableAutoConfiguration: 
+			This annotation is used to enable auto-configuration in our application. 
+			If a class contains this annotation then spring boot automatically looks for all beans on the classpath and automatically configures them.
+--------------
+The server is embeddable in a Spring Boot application, by using the @EnableConfigServer annotation			
+------------------------------------------------------------
+) What is DevTools in Spring Boot?
+Spring Boot DevTools helps you to increase the productivity of the developer. So, you don’t require to redeploy your application every time you make the changes. 
+It allows the developer to reload changes without the need of restarting of the server.
+-------------
+55)  How to handle exception in Spring Boot.
+
+--> Spring Boot provides a very useful way to handle exceptions using @ControllerAdvice annotation
+Controller Advice
+The @ControllerAdvice is an annotation, to handle the exceptions globally.
+
+Exception Handler
+The @ExceptionHandler is an annotation used to handle the specific exceptions and sending the custom responses to the client.
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class ProductExceptionController {
+   @ExceptionHandler(value = ProductNotfoundException.class)
+   public ResponseEntity<Object> exception(ProductNotfoundException exception) {
+      return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
+   }
+}
+--------------
+Exception hadler:
+----------------------
+For example, here is an exception for a missing order.
+
+ @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No such Order")  // 404
+ public class OrderNotFoundException extends RuntimeException {
+     // ...
+ }
+And here is a controller method using it:
+
+ @RequestMapping(value="/orders/{id}", method=GET)
+ public String showOrder(@PathVariable("id") long id, Model model) {
+     Order order = orderRepository.findOrderById(id);
+
+     if (order == null) throw new OrderNotFoundException(id);
+
+     model.addAttribute(order);
+     return "orderDetail";
+ }
+ A familiar HTTP 404 response will be returned if the URL handled by this method includes an unknown order id.
+ -----------------
+ In addition to the application name, we also put the active profile and the connection-details in our application.properties:
+
+spring.application.name=config-client
+spring.profiles.active=development
+spring.config.import=optional:configserver:http://root:s3cr3t@localhost:8888
+-------------------------------------------------
+Security:
+-----------
+package com.example.securingweb;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+			.authorizeRequests()
+				.antMatchers("/", "/home").permitAll()
+				.anyRequest().authenticated()
+				.and()
+			.formLogin()
+				.loginPage("/login")
+				.permitAll()
+				.and()
+			.logout()
+				.permitAll();
+	}
+
+	@Bean
+	@Override
+	public UserDetailsService userDetailsService() {
+		UserDetails user =
+			 User.withDefaultPasswordEncoder()
+				.username("user")
+				.password("password")
+				.roles("USER")
+				.build();
+
+		return new InMemoryUserDetailsManager(user);
+	}
+}
+--------------------
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <scope>runtime</scope>
+</dependency>
+application.properties:
+1
+
+spring.devtools.restart.additional-paths = /path-to-folder
+------------
+Spring POST CALL:
+@RestController
+public class PersonRestController {
+
+  @Autowired private PersonService personService;
+
+  @Autowired private PersonRepository personRepository;
+
+  @RequestMapping(value = "/persistPerson", method = RequestMethod.POST)
+  public ResponseEntity<String> persistPerson(@RequestBody PersonDTO person) {
+    if (personService.isValid(person)) {
+      personRepository.persist(person);
+      return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+    return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build();
+  }
+}
+
+----------------
+Spring boot crud operation using jpa and Rest API:
+-----------------------------------------------------------------
+1. pom.xml :  spring-boot-starter-data-jpa
+					spring-boot-starter-web
+					mysqil-connector-java
+					<scope>runtime</scope>
+					postgresql
+					<scope>runtime</scope>
+					
+2. Configure Spring datasource, jpa, hibernate
+    application.properties:
+											mysql
+											spring.datasource.url =jdbc:mysql://localhost:3306/tesdb?usessl=false
+											spring.datasource.username = admin
+											spring.darasource.password =admin
+											
+											spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.mysql..dialect
+											spring.jpa.hibernate.ddl-auto = update
+3.Model: 
+											@Entity. @Table, @Id, @Column
+											
+4. interface TutorialRepository  extends JpaRepository<Tutorial, 
+													methods();
+5. REST API Controller		:
+								
+
+
+
+
+
+											

@@ -1,0 +1,9 @@
+1. INtrodiction
+2. What is polymorphosm and how to achive this 
+3. What is Meta space in java
+4. What are the immutable classes in java
+5. Filter a gender using Stream grouby 
+6. What is FI and lambda expression
+7. How to do CRUD opearations in spring boot
+8. How to configure DB properties in Spring boot
+9. What are the Spring boot actuators and hoe to enable it.

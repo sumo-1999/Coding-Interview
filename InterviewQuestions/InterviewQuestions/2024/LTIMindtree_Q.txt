@@ -1,0 +1,12 @@
+LTIMindtree:
+---------------
+1. Project architecture
+2. Internal Implementation of HashMap
+3. Class loaders
+4. Why do we need Streams
+5. Spring boot annotations and What is @SpringBootAnnatation
+5. How do we start Spring boot appplication in cli and whatis the command
+6. Maven life cycle. 
+7. What is @Qualifier annotation
+8. Method level annotations
+9. Program for unique emp names and should not be null using streams

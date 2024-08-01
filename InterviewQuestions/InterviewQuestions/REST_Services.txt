@@ -1,0 +1,41 @@
+1. What do you understand by RESTful Web Services?
+RESTful web services are services that follow REST architecture. REST stands for Representational State Transfer and uses HTTP protocol (web protocol) 
+for implementation. These services are lightweight, provide maintainability, scalability, support communication among multiple applications that are 
+developed using different programming languages. They provide means of accessing resources present at server required for the client via the web browser 
+by means of request headers, request body, response body, status codes, etc.
+-------------------
+Safe (HTTP Methods):
+An HTTP method is safe if it doesn't alter the state of the server. In other words, a method is safe if it leads to a read-only operation.
+ Several common HTTP methods are safe: GET, HEAD, or OPTIONS. All safe methods are also idempotent, but not all idempotent methods are safe.
+ For example, PUT and DELETE are both idempotent but unsafe.
+-------------
+Exception hadler:
+----------------------
+For example, here is an exception for a missing order.
+
+ @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No such Order")  // 404
+ public class OrderNotFoundException extends RuntimeException {
+     // ...
+ }
+And here is a controller method using it:
+
+ @RequestMapping(value="/orders/{id}", method=GET)
+ public String showOrder(@PathVariable("id") long id, Model model) {
+     Order order = orderRepository.findOrderById(id);
+
+     if (order == null) throw new OrderNotFoundException(id);
+
+     model.addAttribute(order);
+     return "orderDetail";
+ }
+ A familiar HTTP 404 response will be returned if the URL handled by this method includes an unknown order id.
+ -----------------
+ HTTP methods include:
+
+    POST – Creates a new resource. POST is not idempotent and it is not safe.
+    GET – Retrieves a resource. GET is idempotent and it is safe.
+    HEAD – Retrieves a resource (without response body). HEAD is idempotent and it is safe
+    PUT – Updates/replaces a resource. PUT is idempotent but it is not safe
+    PATCH – Partially updates a resource. PATCH is not idempotent and it is not safe.
+    DELETE – Deletes a resource. DELETE is idempotent but it is not safe.
+    TRACE – Performs a loop-back test. TRACE is idempotent but it is not safe.

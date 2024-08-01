@@ -1,0 +1,56 @@
+https://javasterling.com/java-8-tutorial/  
+Stream: java.util.stream 
+	Stream allows functional style operations on elements. 
+	Java Streams is not a collection or set where we can save elements and store data
+--> stream - not a datastructure
+	A stream is a reflection of a non-changeable compilation of processes that are applied in any classification of the data.
+-->	two types of common operations of Java Streams
+	1. Intermediate Operations  -- return a stream and then various intermediate operations without using semicolon like scala
+	2. Terminal Operations  --  these are mainly void and null if not null then return non-stream result.
+-->Java Functional Interfaces:  java.util.function pkg
+Functional Interface: which helps to achieve functional programming approach through lambda and method references
+	1. one abstract method 
+	2. defualt methods
+	3. static methods
+	4. Object class methods
+fi can not extends another interface which can have abstract method. So fi extends non-fi 	
+--------------------------------------------------------------------------------------------------------------
+Functional interfaces:
+1. Function: takes one argument type as T  and returns specified object type as R
+2. Consumer: takes an object and returns nothing
+3. Predicate: takes an object and returns boolean
+4. Supplier: takes nothing and returns an object
+5. BiFunction: takes two objects and returns specified object similar to Function
+---------------------------------------------------------------------------------------------------
+The map() function is a method in the Stream class that represents a functional programming concept. In simple words, the map() is used to 
+transform one object into other by applying a function.
+That's why the Stream.map(Function mapper) takes a function as an argument. For example, by using the map() function, you can convert a list 
+of String into a List of Integer by applying the Integer.valueOf() method to each String on the input list.
+Ex:   List<String> numbers = Arrays.asList("1", "2", "3", "4", "5", "6");
+    System.out.println("original list: " + numbers);
+
+    List<Integer> even = numbers.stream()
+                                .map(s -> Integer.valueOf(s))
+                                .filter(number -> number % 2 == 0)
+                                .collect(Collectors.toList());
+-->What is an ideal situation where the user can use the Streams API in Java?
+The Stream API in Java 8 can be efficiently utilized in many scenarios. These scenarios are:
+
+Streams API are used where the user has to perform database operations.
+Streams API are used to execute operations lazily.
+It helps in writing functional-style programming.
+It is used in performing parallel processing.
+Streams API are used in projects where the project demands the use of pipeline operations.
+In order to achieve internal iteration, Streams API is very useful.
+-------------------
+Concurrency Enhancements: java.util.concurrent pkg
+		2 new interfaces : 1. CompletableFuture --> It is a marker interface which is used to identify asynchronous tasks produced by async methods. 
+																			It may be useful for monitoring, debugging, and tracking asynchronous activities.
+									2. CompletionStage --> It creates a stage of a possibly asynchronous computation, that performs an action or computes a 
+									value when another CompletionStage completes										
+		4 new classes   1. CompletionException --> extends RunTimeException
+																		It throws an exception when an error or other exception is encountered in the course
+																		of completing a result or task.
+								2. CountedComplter -->
+								3. ConcurrentHashMap-->
+								4. CompletableFuture -->

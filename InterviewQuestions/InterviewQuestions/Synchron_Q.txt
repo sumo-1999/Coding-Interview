@@ -1,0 +1,35 @@
+Syncron:
+1. Java 8 features
+2. Can we store employee or person object as a key in the hashMap?
+3. What is deep copy and Swallow copy
+4. how to declare immutable class in java
+
+
+-------------------------
+1. Can we store employee or person object as a key in the hashMap?
+Answer to your question is yes, objects of custom classes can be used as a key in a HashMap. But in order to retrieve the value object back from the map without failure, there are certain guidelines that need to be followed.
+
+1)Custom class should follow the contract between hashCode() and equals().
+
+The contract states that:
+
+If two objects are equal according to the equals(Object) method, then calling
+the hashCode method on each of the two objects must produce the same integer result.
+This can be done by implementing hashcode() and equals() in your custom class.
+
+2) Make custom class immutable.
+Hint: use final, remove setters, use deep copy to set fields
+----
+A simple thumb rule is to use immutable objects as keys in a HashMap.
+
+because:
+
+If it were mutable, then the hashcode() value or equals() condition might change, and you would never be able to retrieve the key from your HashMap.
+
+More precisely, class fields that are used to compute equals() and hashcode() should be immutable!
+
+Now, suppose you create your own class:
+
+To compare two objects of your class you will have to override equals()
+To use it as a key in any Hash based Data structure you will have to override hashcode() (again, keeping immutability in mind)
+Remember that if two objects are equal(), then their hashcode() should be equal as well!

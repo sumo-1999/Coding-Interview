@@ -1,0 +1,162 @@
+If we didn't override the hashCode() method then the Object class hashCode() method will be executed which generates
+ hashCode based on the address of the object but it doesn't mean hashCode represents the address of the object
+ 
+ Based on our programming requirement we can override the hashCode() method to generate our own hashcode
+ Overriding hashCode() method is said to be proper if and only if for every object we have to generate a unique number as hashcode for every object
+ ---------------------
+ -->Arrays:                                                 Collections - java.util pkg
+ Fixed in size       
+no data structure
+homogeneous data
+duplicate nature
+indexed based
+can hold both Objects and primitives 
+-----------------------------------------------
+Collections are grow able in nature i.e based on requirement we can increase or decrease the size.
+Collections can hold heterogeneous data elements also.
+Every collection class has implemented based on some data structure
+Collection(I) is interface where as Collecions is a class like utility methods used for Collection imlemented classes.
+List: 
+	preserved insertion order
+	duplicates allowed -- 
+	implemented - ArrayList, LinkedList, Vector and Stack -- Vector and stack classes are reengineered in 1.2 version to fit into collection frame work
+	By means of index we can preserve insertion order and we can differentiate duplicate objects.
+---------------
+Set : 
+		order is not preserved
+		no duplication
+		implemented- HashSet, LinkedHashSet 
+------------
+SortedSet(I):
+	it has some sorting order by default
+	imlemented - TreeSet(C)
+----------
+Queue:1.5
+		direct child interface of Collection(I)
+		representing a group of individual objects prior to processing
+-----------------
+Map:
+			This can be used for representing a group of objects as key value pairs.
+			Both key and value are objects only
+-----------------------------
+SortedMap:
+			some sorting order of keys.
+			implemnted - TreeMap			
+--------------------------------------------------------------------------------------------------
+ArrayList: Best suit for retrieval bcz implements RandomAccess (I), 4 Interfaces - RandomAccess, Serializable, Clonable and List
+	The underlying data Structure for ArrayList() is resizable Array or “Growable Array”.
+	Duplicate objects are allowed.
+	Insertion order is preserved.
+	Heterogeneous objects are allowed.
+	‘null’ insertion is possible.	
+    Initial capacity is 10 - 16 (10*3/2+1)	
+---------------------------------------------------
+LinkedList: Best suitable for deletion and insertion bcz LinkedList is the bestchoice if our frequent operation is insertion or deletion in the middle(no shift 
+					operations are required) and its not implements RandomAccess
+	Underlying data structure is doublel LinkedList
+	Insertion order is preserved	
+	allow duplicates
+	null - possible
+	size double of the array
+	Initial capacityis 16 -double the size
+	Implements List, Queue, serializable, clonealbe Interfaces But not RandomAccess
+-->used for implementing stacks and Queues to provide support	
+-----------------------------------------------------------------------------------------------------------
+Vector: Similar to ArrayList
+The underlying Data structure for the vector is resizable array or growable array.
+Insertion order is preserved.
+Duplicate objects are allowed.
+‘null’ insertion is possible.
+Heterogeneous objects are allowed.
+Best choice if the frequent operation is retrieval.
+Worst choice if the frequent operation is insertion or deletion in the middle.
+Vector class implemented serializable, cloneable and RandomAccess Interfaces.
+-----------------------------------------------------------------------------------------------------
+TreeSet : 1. it is having natural sorting order by default and uniquie also.
+		  2. It can be used to convert any collection to available unique and natural sorting order.
+		  3. if we want we can do customized sorting order by Comparator 
+		  4. It is not synchrnozed and we can do Collections.synchronziedSet(ts); 
+		  5. TreeSet does not allow the insertion of heterogeneous objects. It will throw a classCastException at Runtime if we try to add heterogeneous objects.
+Stack --- child class of Vector-----------------
+---------------------------------------
+Collection Framework questions:
+https://www.softwaretestinghelp.com/java-collections-interview-questions/
+What is a LinkedList and how many types of it are supported in Java?
+	LinkedList is a data structure with a sequence of links where every link is connected to the next link.
+--------------------------------------------------------------------------------------------------------------------------------------
+Singleton Class:  The Singleton Pattern ensures a class has only one instance, and provides a global point of access to it.
+-----------------------
+	1. Define the class constructor as private.
+    2. Create a static method that returns the object of this class. We will use the lazy initialization technique to evaluate the object to be created 
+	only once.
+		In general, we use the constructor to create the instance of the class. On the other hand, we will use the getInstance() method to get the instance
+		of the class.
+		Consider the following example to create the singleton class in java.	
+		
+public class SingletonClass { 
+private static SingletonClass instance = null;  
+public String str;  
+  
+private SingletonClass() {  }
+  
+public static SingletonClass getInstance() {  
+if (instance == null){  
+instance = new SingletonClass();  
+}  
+return instance;  
+  
+}  
+--------------------
+Method overloading:
+1. The compiler does not consider return type when differentiating methods, so you cannot declare two methods with the same signature even if they have
+ a different return type.
+---------
+Copy constructor:
+class Complex {
+ 
+    private double re, im;
+     
+    // A normal parameterized constructor
+    public Complex(double re, double im) {
+        this.re = re;
+        this.im = im;
+    }
+     
+    // copy constructor
+    Complex(Complex c) {
+        System.out.println("Copy constructor called");
+        re = c.re;
+        im = c.im;
+    }
+      
+    // Overriding the toString of Object class
+    @Override
+    public String toString() {
+        return "(" + re + " + " + im + "i)";
+    }
+}
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        Complex c1 = new Complex(10, 15);
+     
+    
+        // Following involves a copy constructor call
+        Complex c2 = new Complex(c1);  
+ 
+        // Note that following doesn't involve a copy constructor call as
+        // non-primitive variables are just references.
+        Complex c3 = c2;  
+ 
+        System.out.println(c2); // toString() of c2 is called here
+    }
+}
+
+Output: 
+
+Copy constructor called
+(10.0 + 15.0i)
+
+
+

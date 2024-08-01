@@ -1,0 +1,13 @@
+Opus :
+1. Internal implementation of hashMap
+2. What is Hystrix
+3. Difference between Soap and Rest
+4. Spring Boot exception handling and profiles
+5. HashMap and Concurrent HashMap
+6. String str = "apple apple bananan, red, bananna, red, yellow then find repeated word
+7. Dtring str = "ABBCDEEGTT" then find first occurence repeated sequence and also find repeating all char.
+8. What is @Decorative 
+9. What is Angular template
+10.Types of data binding
+11.How many compilers are there in Angular 
+12.What is Swagger

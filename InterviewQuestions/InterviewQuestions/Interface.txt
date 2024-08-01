@@ -1,0 +1,10 @@
+java.util.function pkg
+Functional Interface: which helps to achieve functional programming approach through lambda and method references
+	1. one abstract method 
+	2. defualt methods
+	3. static methods
+	4. Object class methods
+fi can not extends another interface which can have abstract method. So fi extends non-fi 
+---------
+ forEach() method is of Iterable interface that is used to iterate through a collection. Here it takes an argument of Consumer type interface. 
+ This is a functional interface having only one abstract method called accept(). Since it is a functional interface, a lambda expression can be passed.

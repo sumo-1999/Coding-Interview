@@ -1,0 +1,142 @@
+1.  Hibernate  - open-source and lightweight ORM tool.
+		used to store, manipulate, and retrieve data from the database.
+		
+2. What are the advantages of Hibernate over JDBC?		 
+    1.  Clean readable code - eliminating a lot of JDBC API-based boiler-plate codes
+	2. HQL (Hibernate Query Language)- It is closer to Java and is object-oriented in nature. 
+															  reducing the burden on developers for writing database independent queries. 
+															  In JDBC, this is not the case. A developer has to know the database-specific codes.
+	3. Transaction Management - Hibernate implicity provides this(developer to write transaction management code using commit and rollback methods) feature
+	4. Exception Handling - Hibernate wraps the JDBC exceptions and throws unchecked exceptions.
+										 Avoid multiple try-catch blocks - due to built-in txn management.(In the case of JDBC, it throws a checked exception called SQLException thereby 
+										 mandating the developer to write try-catch blocks to handle this exception at compile time.)	
+	5. Special Features - like oop's features inheritance, association and also supports Collections, Not in JDBC
+	
+3.  Hibernate caching :
+Hibernate caching improves the performance of the application by pooling the object in the cache. It is useful when we have to fetch the same data multiple times.
+When - to fetch the same data multiple times.
+There are mainly two types of caching:
+    First Level Cache - not available to entire application, enabled by default
+    Second Level Cache - available to entiie application, we need to enable it explicitely.
+	
+4. What are some of the important interfaces of Hibernate framework?
+    1. Configuration
+	2. SessionFactory  -  it holds second-level cache and enabled explicitly
+	3. Session      -      1. session is an object that maintains the connection between Java object application and database. 
+								2. Session also has methods for storing, retrieving, modifying or deleting data from database 
+									using methods like persist(), load(), get(), update(), delete(), etc. 
+								3. Additionally, It has factory methods to return Query, Criteria, and Transaction objects
+	4. Criteria
+	5. Transaction
+	6. Query
+	
+5. What is a SessionFactory?
+    SessionFactory provides an instance of Session. It is a factory class that gives the Session objects based on the configuration parameters in order 
+	to establish the connection to the database.
+	As a good practice, the application generally has a single instance of SessionFactory. The internal state of a SessionFactory which includes metadata 
+	about ORM is immutable, 
+	i.e once the instance is created, it cannot be changed.
+	This also provides the facility to get information like statistics and metadata related to a class, query executions, etc. It also holds second-level
+	cache data if enabled.	
+
+6. What do you think about the statement - “session being a thread-safe object”?
+	No, Session is not a thread-safe object which means that any number of threads can access data from session simultaneously.	
+7. Can you explain what is lazy loading in hibernate?
+	improving the application performance by helping to load the child objects on demand.
+	It is to be noted that, since Hibernate 3 version, this feature has been enabled by default. This signifies that child objects are not loaded until 
+	the parent gets loaded	
+	
+8. What is the difference between first level cache and second level cache?
+First Level Cache	                                                                                                                                      Second Level Cache
+1.This is local to the Session object and cannot be shared between multiple sessions.	1.This cache is maintained at the SessionFactory level and shared among all sessions in Hibernate.
+2.This cache is enabled by default and there is no way to disable it.								2.This is disabled by default, but we can enable it through configuration.
+3.The first level cache is available only until the session is open,
+	once the session is closed, the first level cache is destroyed.	                                 3.The second-level cache is available through the application’s life cycle, 
+																																		it is only destroyed and recreated when an application is restarted.	
+																																		
+Note: 	If an entity or object is loaded by calling the get() method then Hibernate first checked the first level cache, if it doesn’t find the object then it goes to the second level cache if configured. 
+			If the object is not found then it finally goes to the database and returns the object, if there is no corresponding row in the table then it returns null.			
+
+9. Differentiate between get() and load() in Hibernate session
+                                             get()	                                                                                                                        load()
+This method gets the data from the database as soon as it is called.	This method returns a proxy object and loads the data only when it is required.
+The database is hit every time the method is called.	The database is hit only when it is really needed and this is called Lazy Loading which makes the method better.
+The method returns null if the object is not found.	The method throws ObjectNotFoundException if the object is not found.
+This method should be used if we are unsure about the existence of data in the database.	This method is to be used when we know for sure that the data is present in the database.
+
+10. How do we know which database is auto configured?
+			<props>
+            <prop key="hibernate.hbm2ddl.auto">update</prop>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+           </props>
+-------------------------------------------
+11. Hibernate annotations: 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "EMPLOYEE")
+public class Employee {
+   @Id @GeneratedValue
+   @Column(name = "id")
+   private int id;
+
+   @Column(name = "first_name")
+   private String firstName;
+
+   @Column(name = "last_name")
+   private String lastName;
+
+   @Column(name = "salary")
+   private int salary;  
+
+   public Employee() {}		   
+		   setters/getters
+		   }
+------------------
+Mapping :
+1. many-to- one:  <many-to-one name = "address" column = "address"                        class="Address" not-null="true"/>		   
+2. one-to-one    :  <many-to-one name = "address" column = "address" unique="true" class="Address" not-null="true"/>
+Note : The <many-to-one> element will be used to define the rule to establish a one-to-one relationship between EMPLOYEE and ADDRESS entities,
+           but column attribute will be set to unique constraint and rest of the mapping file will remain as it was in case of many-to-one association.
+3. one-to-many : Employee  -- Certificates
+                      <set name = "certificates" cascade="all">
+						<key column = "employee_id"/>
+						<one-to-many class="Certificate"/>
+					 </set>
+4. many-tp-many : 
+                               <set name = "certificates" cascade="save-update" table="EMP_CERT">
+								<key column = "employee_id"/>
+								<many-to-many column = "certificate_id" class="Certificate"/>
+								</set>					 
+						Ex: to implement many-to-many relationship between EMPLOYEE and CERTIFICATE objects, we would have to introduce one more intermediate table having Employee ID and Certificate ID as follows −
+
+							create table EMP_CERT (
+							employee_id INT NOT NULL,
+							certificate_id INT NOT NULL,
+							PRIMARY KEY (employee_id,certificate_id)
+							);
+--------------------------------------------------------------
+import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users", indexes = {
+        @Index(columnList = "id", name = "user_id_hidx"),
+        @Index(columnList = "current_city", name = "cbplayer_current_city_hidx")
+})							
+-----------------------------------------------------------------------------------------------------------
+The @Entity annotation specifies that the class is an entity and is mapped to a database table. The @Table annotation specifies the name of the database table to be used for mapping
+
+ --> Composite Primary Keys
+
+A composite primary key, also called a composite key, is a combination of two or more columns to form a primary key for a table.
+
+In JPA, we have two options to define the composite keys: the @IdClass and @EmbeddedId annotations.
+
+In order to define the composite primary keys, we should follow some rules:
+
+    The composite primary key class must be public.
+    It must have a no-arg constructor.
+    It must define the equals() and hashCode() methods.
+    It must be Serializable.

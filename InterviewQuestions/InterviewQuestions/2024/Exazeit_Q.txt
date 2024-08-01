@@ -1,0 +1,13 @@
+johnsyjayaranee.johnson@tcs.com
+princyshalina.s@tcs.com
+------
+Exazeit:
+------------
+1. Project architecture and infrastructure
+2. Java 17 features and did you face any issues with java 17 with Java 8 applications
+3. What is kafka partition
+4. What is URL versioning while constructing REST endpoints
+5. What is TTD appraoach
+6. What is CI process in deployment
+7. What is UML diagram
+8. What is Authentication and Authorozation, JWT

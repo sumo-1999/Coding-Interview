@@ -1,0 +1,114 @@
+Microservices components:
+------------------------------
+1. Service Discovery:
+						A microservices-based application typically runs in virtualized or containerized environments. The number of instances of a service and 
+						its locations changes dynamically. We need to know where these instances are and their names to allow requests to arrive at the target
+						microservice. This is where tactics such as Service Discovery come into play.
+							The Service Discovery mechanism helps us know where each instance is located. In this way, a Service Discovery component acts as a 
+							registry in which the addresses of all instances are tracked. The instances have dynamically assigned network paths. Consequently, 
+							if a client wants to make a request to a service, it must use a Service Discovery mechanism.
+		There are two main service‑discovery patterns: client-side discovery and service-side discovery. In systems that use client‑side service discovery, 
+		clients query the service registry, select an available instance, and make a request. In systems that use server‑side discovery, 
+		clients make requests via a router, which queries the service registry and forwards the request to an available instance.
+
+There are two main ways that service instances are registered with and deregistered from the service registry. One option is for service instances to 
+register themselves with the service registry, the self‑registration pattern. The other option is for some other system component to handle the 
+registration and deregistration on behalf of the service, the third‑party registration pattern.	
+	
+					In some deployment environments you need to set up your own service‑discovery infrastructure using a service registry such as 
+					Netflix Eureka, etcd, or Apache Zookeeper. In other deployment environments, service discovery is built in. 
+					For example, Kubernetes and Marathon handle service instance registration and deregistration. They also run a proxy on each cluster host 
+					that plays the role of server‑side discovery router.
+
+Some of the main features of Microservices include:
+
+Decoupling: Within a system, services are largely decoupled. The application as a whole can therefore be easily constructed, altered, and scalable
+Componentization: Microservices are viewed as independent components that can easily be exchanged or upgraded
+Business Capabilities: Microservices are relatively simple and only focus on one service
+Team autonomy: Each developer works independently of each other, allowing for a faster project timeline
+Continuous Delivery: Enables frequent software releases through systematic automation of software development, testing, and approval
+Responsibility: Microservices are not focused on applications as projects. Rather, they see applications as products they are responsible for
+Decentralized Governance: Choosing the right tool according to the job is the goal. Developers can choose the best tools to solve their problems
+Agility: Microservices facilitate agile development. It is possible to create new features quickly and discard them again at any time.
+
+--> Do you know about Eureka service: Discovery Server
+	Eureka Server is an application that holds the information about all client-service applications. Every Micro service will register into 
+	the Eureka server and Eureka server knows all the client applications running on each port and IP address. Eureka Server is also known as Discovery Server. 	
+-----
+What is service registry in spring?
+You will set up a Netflix Eureka service registry and then build a client that both registers itself with the registry and uses it to resolve its own host. 
+A service registry is useful because it enables client-side load-balancing and decouples service providers from consumers without the need for DNS	
+-------------------------------------------------------------------------------------------------------------------===============
+Advantages of API Gateway
+
+    The most important advantage of API Gateway is that it encapsulates the internal structure of the application.
+    Rather than invoking the specific service, the client directly talks to the API Gateway.
+    It reduces the number of round trips between client and application.
+    It simplifies the client code.
+    It reduces coding efforts, makes the application more efficient, decreases errors all at the same time.
+    It provides each kind of client with a specific API.
+--------------------------------------------------------------------------------------------------------
+Disadvantages
+
+    It requires routing rules.
+    There is a possibility of a single point of failure.
+    Risk of complexity due to all the API rules are in one place.
+
+-------------------------------------------------------------------------------
+rangakaranam  ---
+namasthe react  -- 
+
+1. Microserves components
+2. Microservice design patterns
+3. Difference between microservics and Monnolithic apps
+4. Disadvantages of Microservices
+5. Diffrence berween Filter, ActionServlet and Interceptors and when to use
+6. Can we override private and static methods
+7. @RestController and @Controller
+8. What is deadlock and how to avoid this
+9. How memory leaks can handle
+10.What is SAGA
+11.Angular hook life cycle
+12. What is component in Angular
+13. How to display sql queries in logs or console
+----------
+1. API gateway : Spring Cloud Gateway
+2. Server Discovery  : Client-Side Service Discovery Example: Netflix Eureka, Zookeeper, Consul
+						Server-Side Service Discovery Example: NGNIX, AWS ELB
+3. Circutebreaker    : Hystrix and Resillence4j
+4. Loadbalancer  : Spring Cloud Gateway internaly used for loadbalancer
+5. Service Monitoring : Actuator 
+6. Service Orachestration :  Saga Design pattern
+7. Confuration Server :  spring-config-server  -- git
+8. Server Registry
+
+----------------------------
+
+1. Microserves components
+2. Microservice design patterns
+3. Difference between microservics and Monnolithic apps
+4. Disadvantages of Microservices
+5. Diffrence berween Filter, ActionServlet and Interceptors and when to use
+6. Can we override private and static methods
+7. @RestController and @Controller
+8. What is deadlock and how to avoid this
+9. How memory leaks can handle
+10.What is SAGA
+11.Angular hook life cycle
+12. What is component in Angular
+13. How to display sql queries in logs or console
+----------
+1. API gateway 
+2. Eureka server
+3. Circutebreaker
+4. Loadbalancer
+5. Service Monitoring 
+6. Service Orachastration
+7. Confuration Server
+8. Server Discover
+------------------------
+Saga desing pattern:
+SAGA pattern is a design pattern that is a long-lived sequence of smaller transactions. This pattern is used to manage and maintain data consistency across 
+multiple microservices. Each transaction is executed by a single service, and the state changes are broadcasted to other services involved in the Saga. 
+It helps to maintain data consistency by providing an alternative approach to the traditional ACID transactions model that may not be feasible in a 
+distributed environment

@@ -1,0 +1,34 @@
+In data modelling terms, cardinality is how one table relates to another.
+
+    1-1 (one row in table A relates to one row in tableB)
+    1-Many (one row in table A relates to many rows in tableB)
+    Many-Many (Many rows in table A relate to many rows in tableB)
+--------------
+N+1 problem in Hibernate & Spring Data JPA:
+https://www.javacodemonk.com/n-1-problem-in-hibernate-spring-data-jpa-894097b9---
+N+1 problem is a performance issue in Object Relational Mapping that fires multiple select queries (N+1 to be exact, where N = number of records in table) 
+in database for a single select query at application layer. Hibernate & Spring Data JPA provides multiple ways to catch and address this performance problem
+--------------------
+A procedures or function is a group or set of SQL and PL/SQL statements that perform a specific task." A function and procedure is a named PL/SQL Block which 
+is similar . The major difference between a procedure and a function is, a function must always return a value, but a procedure may or may not return a value.
+-----------
+2 db connections in Single Application:
+Follow the below steps:
+
+    Add an additional datasource configuration to your application.properties.
+
+    Set the SQL Dialect to “default” in your application.properties to let Spring autodetect the different SQL Dialects of each datasource
+    Create a Java Package for each datasource with two nested Packages
+    Create a Configuration Class for the First database
+    Create a Configuration Class for the Second database
+    Create an Entity for the First database
+    Create a Repository for the First database
+    Create an Entity for the Second database
+    Create a Repository for the Second database
+---------
+Time stamp auto update ---- This works with TIMESTAMP and DATETIME columns
+ALTER TABLE whatevertable
+     CHANGE whatevercolumn 
+            whatevercolumn TIMESTAMP NOT NULL
+                           DEFAULT CURRENT_TIMESTAMP 
+                           ON UPDATE CURRENT_TIMESTAMP;
